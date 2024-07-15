@@ -223,3 +223,197 @@ re.sub(pattern, repl, text)
 re.findall(pattern, text) # Return a list of all matches to pattern. non-overlapping
 ```
 
+# Word Embedding
+
+## Bag of words
+
+## N-Gram Encoding
+
+- N-Gram: "Bag of sequence of words"
+
+## TF-IDF
+
+### TF(Term frequency)
+
+![image-20240713194431059](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240713194431059.png)
+
+### IDF (Inverse document frequency)
+
+![image-20240713194446027](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240713194446027.png)
+
+### tf-idf
+
+![image-20240713194512647](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240713194512647.png)
+
+# Data on the Internet
+
+# Data Wrangling and EDA
+
+# Visualization
+
+## Bar Plot
+
+```python
+# pandas
+births['Maternal Smoker'].value_counts().plot(kind = 'bar')
+# Matplotlib manual
+ms = births['Maternal Smoker'].value_counts();
+plt.bar(ms.index, ms)
+# seaborn
+import seaborn as sns
+sns.countplot(data = births, x = 'Maternal Smoker');
+
+```
+
+## Histogram
+
+```python
+sns.histplot(data = births, x = 'Maternal Pregancy Weight');
+```
+
+- Skewness and Tails
+  - skewed right (mode > median > mean)
+  - skewed left(mode < median < mean)
+- Outliers
+
+- Modes
+  - local or global maximum
+- n = w x h x N
+  - n: number of samples in the bin
+  - w: width of the bin
+  - h: height of the bin
+  - N: total number of samples
+
+## Box plots
+
+![image-20240713202855663](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240713202855663.png)
+
+## Visualization Theory
+
+# Data on the Internet
+
+## Request methods
+
+```python
+import requests
+```
+
+- GET mothod
+
+```python
+res = requests.get('https://bing.com')
+res
+res.text
+```
+
+- POST requests via requests
+
+```python
+post_res = requests.post('https://httpbin.org/post',
+                         data={'name': 'King Triton'})
+
+post_res
+post_res.text
+post_res.json()
+```
+
+## Json
+
+```python
+import json
+
+f = open(os.path.join('data', 'family.json'), 'r')
+family_tree = json.load(f)
+```
+
+```python
+f_other = open(os.path.join('data', 'family.json'))
+s = f_other.read()
+json.loads(s)
+```
+
+- json.load(f): loads a json file from a file object
+- json.loads(f): loads a json file from a string 
+
+## BeautifulSoup objects
+
+```python
+import bs4
+soup = bf4.BeautifulSoup(html_string)
+```
+
+### Finding elements in a tree
+
+- `soup.find(tag)`
+  - More general: `soup.find(name=None, attrs={}, recursive=True, text=None, **kwargs)`
+- `soup.find_all(tag)`
+
+## Nested vs. flat data formats
+
+- **Nested** data formats, like HTML, JSON, and XML, allow us to represent hierarchical relationships between variables.
+
+* **Flat** (i.e. tabular) data formats, like CSV, do not.
+
+# Model & Linear Regression
+
+## modeling process
+
+1. choose a model
+   - linear model, MLP ...
+2. choose a loss function
+   - L1 Loss
+   - L2 Loss
+3. fit the model
+4. evaluate the model
+
+![image-20240715170047482](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240715170047482.png)
+
+# Feature Engineering and Sklearn
+
+## The `sklearn` Workflow
+
+1. choose a model: `mymodel = lm.LinearRegression()`
+2. fit the model: `mymodel.fit(X_train, Y_train)`
+3. eval the model: `mymodel.predict(X_val)`
+
+# Estimator, Bias, and Variance
+
+![image-20240715173535883](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240715173535883.png)
+
+- observation variance
+  - Our observation is not accurate compared to the true function
+- model variance
+  - Our sample is random, thus the model is somehow variance
+- model bias
+  - Out estimator(fitted model) is different from the true function
+
+# Cross Validation and Regularization
+
+## K-Fold Cross-Validation
+
+For a dataset with K folds:
+
+- Pick one fold as the validation fold
+- train the model in the remaining folds
+- computer the model's error on the validation field on the validation field
+- repeat for all K folds
+- cross-validation error = mean of validation errors for k rounds
+
+## Regularization
+
+### L2-Regularization
+
+![image-20240715195140648](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240715195140648.png)
+
+### Scaling Data for Regularization
+
+Standardize the data, i.e. replace everything with its Z-score
+
+### L1 Regularization
+
+![image-20240715195355594](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240715195355594.png)
+
+![image-20240715195412141](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240715195412141.png)
+
+# SQL
+
