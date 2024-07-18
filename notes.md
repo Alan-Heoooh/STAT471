@@ -245,10 +245,6 @@ re.findall(pattern, text) # Return a list of all matches to pattern. non-overlap
 
 ![image-20240713194512647](C:\Users\86139\AppData\Roaming\Typora\typora-user-images\image-20240713194512647.png)
 
-# Data on the Internet
-
-# Data Wrangling and EDA
-
 # Visualization
 
 ## Bar Plot
