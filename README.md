@@ -1,6 +1,6 @@
-# STAT471-SU22
+# STAT471-SU24
 
-- This repo is written by Zihao for the course STAT471 in SU22.
+- This repo is written by Zihao for the course STAT471 in SU24.
 - Instructor: Zhang Ailin
 
 ## About Honor Code
